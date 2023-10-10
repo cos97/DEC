@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Selección de Frutas</title>
+<script>
+        function lanzar_mensaje() {
+            // Obtén el valor seleccionado del select
+            var frutaSeleccionada = document.getElementById("frutas").value;
+            
+            // Muestra el valor en la consola
+            console.log("Fruta seleccionada: " + frutaSeleccionada);
+            
+            // Muestra una alerta con la fruta seleccionada
+            alert("Fruta seleccionada: " + frutaSeleccionada);
+        }
+    </script>
+</head>
+<body>
+    <form>
+        <label for="frutas">Selecciona una fruta:</label>
+        <select name="frutas" id="frutas">
+            <option value="manzana">Manzana</option>
+            <option value="plátano">Plátano</option>
+            <option value="naranja">Naranja</option>
+            <option value="uva">Uva</option>
+        </select>
+        <input type="button" value="Mostrar Fruta" onclick="lanzar_mensaje()">
+    </form>
+</body>
+</html>

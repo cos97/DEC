@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/assets/css/reset.css">
+    <link rel="stylesheet" href="/assets/css/style.css">
+    
+    <script>
+
+        function validacion() {
+            var valor1 = document.getElementById("nombre2").value;
+            var valor2 = document.getElementById("apellidos2").value;
+            var valor3 = document.getElementById("email2").value;
+            var valor4 = document.getElementById("password2").value;
+            var valor5 = document.getElementById("condiciones2").checked;
+
+            // Contraseña 8-16 caracteres con dígito mayúscula y minúscula
+            var patt = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,16}$/;
+
+            if (valor1 === "" || valor2 === "") {
+                alert('Los campos nombre y apellidos son obligatorios.');
+                return false;
+            }
+            if (valor3 === "") {
+                alert('El campo email es obligatorio.');
+                return false;
+            }
+            if (!valor3.includes('@')) {
+                alert('El campo email debe incluir la @.');
+                return false;
+            }
+            if (!patt.test(valor4)) {
+                alert('La contraseña no es correcta (debe contener al menos una mayúscula, una minúscula y un dígito, y tener entre 8 y 16 caracteres).');
+                return false;
+            }
+            if (!valor5) {
+                alert('Debes aceptar las condiciones.');
+                return false;
+            }
+
+            alert('Formulario de contacto completado correctamente.');
+            return true;
+        }
+    </script>
+</head>
+<body>
+        
+    <section class="contact__form-box">
+
+        <div class="contact__map" id="load-iframe-map">
+            <span class="loader"></span>
+        </div>
+
+        <header class="contact__form-header">
+            <h3 class="form-header__title">Formulario de Contacto</h3>
+        </header>
+
+        <form class="contact__form" action="" onsubmit="return validacion()">
+            <div class="form__container">
+
+                <section class="form__left">
+
+                    <div class="form__group">
+                        <input type="text" class="form__input" name="name" id="nombre2" required placeholder="Nombre">
+                        <label for="nombre2" class="form__label">Nombre</label>
+                    </div>
+
+                    <div class="form__group">
+                        <input type="text" class="form__input" name="apellidos" id="apellidos2" required placeholder="Apellidos">
+                        <label for="apellidos2" class="form__label">Apellidos</label>
+                    </div>
+                    
+                    <div class="form__group">
+                        <input type="email" class="form__input" name="email" id="email2" required placeholder="Email">
+                        <label for="email2" class="form__label">Email</label>
+                    </div>
+                    
+                    <div class="form__group">
+                        <input type="password" class="form__input" name="password" id="password2" required placeholder="Contraseña">
+                        <label for="password2" class="form__label">Contraseña</label>
+                    </div>
+                    
+                </section>
+
+                <section class="form__right">
+
+                    <div class="form__group form__group--textarea">
+                        <textarea class="form__input form__input--textarea" name="message" required id="comentarios2" placeholder="Mensaje"></textarea>
+                        <label for="comentarios2" class="form__label">Comentarios</label>
+                    </div>
+
+                </section>
+            </div>
+            <div class="form__group">
+                <input type="checkbox" class="form__checkbox" name="condiciones" id="condiciones2" value="1">
+                <label for="condiciones2" class="form__label-checkbox">Acepto las condiciones de servicio.</label>
+            </div>
+            <input type="submit" class="form__button">
+
+        </form>
+    </section>
+</body>
+</html>
