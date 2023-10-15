@@ -1,0 +1,6 @@
+
+* Codigo incrustado:
+<script type="text/javascript">console.log(Codigo...);</script>
+
+* Codigo vinclado:
+<script type="text/javascript"> src="/assets/js/function.js"</script>
